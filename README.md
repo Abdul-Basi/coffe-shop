@@ -1,11 +1,7 @@
 # React Native Coffee Shop App
 
 
-![collage (1)](https://github.com/mxnuchim/Coffee-Shop-App-React-Native/assets/55309494/c0649d8e-3704-4507-a6e6-52d3ed8222db)
 
-
-
-### Figma Design Link : View the complete figma design [Here]('https://www.figma.com/file/X6iFON9Z1zsADVbCI7hWUq/Coffee-Shop-App-UI-(Copy)?type=design&node-id=0%3A1&mode=design&t=CW8j4E78mf2PggDQ-1').
 
 A mobile app originally built with React Native CLI. This repository has been updated to be compatible with Expo so you can run it easily with the Expo CLI.
 
@@ -20,7 +16,6 @@ A mobile app originally built with React Native CLI. This repository has been up
 
 ## Installation (Expo)
 
-1. Clone the repository: `git clone https://github.com/mxnuchim/Coffee-Shop-App-React-Native.git`
 2. Navigate to the project directory: `cd Coffee-Shop-App-React-Native`
 3. Install dependencies: `npm install` or `yarn`
 
@@ -39,9 +34,6 @@ Migration notes:
 - Native modules such as `react-native-splash-screen`, `lottie-react-native`, and some community native modules may require Expo equivalents (`expo-splash-screen`, `lottie-react-native` via config plugins, `@expo/vector-icons`, `expo-linear-gradient`) or running `expo prebuild` to create native projects.
 - If you previously used CocoaPods directly, Expo manages native dependencies for the managed workflow. For a custom native setup use `expo prebuild` or eject.
 
-## Contributing
-
-Contributions are welcome! Please read our [Contribution Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ## License
 
@@ -49,7 +41,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Contact
 
-For questions or support, please contact me [Here](mailto:manuchimoliver779@gmail.com).
+For questions or support, please contact me [Here](abdulbasit505basit@gmail.com).
 
 ---
 
