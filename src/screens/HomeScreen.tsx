@@ -1,16 +1,16 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  ToastAndroid,
 } from 'react-native';
-import {useStore} from '../store/store';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import { CustomStatusBar } from '../components/CustomStatusBar';
+import { showToast } from '../utils/toast';
+import { useStore } from '../store/store';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import {
   BORDERRADIUS,
   COLORS,
@@ -20,9 +20,9 @@ import {
 } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
-import {FlatList} from 'react-native';
+import { FlatList } from 'react-native';
 import CoffeeCard from '../components/CoffeeCard';
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 
 const getCategoriesFromData = (data: any) => {
   let temp: any = {};
@@ -47,7 +47,7 @@ const getCoffeeList = (category: string, data: any) => {
   }
 };
 
-const HomeScreen = ({navigation}: any) => {
+const HomeScreen = ({ navigation }: any) => {
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeanList = useStore((state: any) => state.BeanList);
   const addToCart = useStore((state: any) => state.addToCart);
@@ -74,7 +74,7 @@ const HomeScreen = ({navigation}: any) => {
         animated: true,
         offset: 0,
       });
-      setCategoryIndex({index: 0, category: categories[0]});
+      setCategoryIndex({ index: 0, category: categories[0] });
       setSortedCoffee([
         ...CoffeeList.filter((item: any) =>
           item.name.toLowerCase().includes(search.toLowerCase()),
@@ -88,7 +88,7 @@ const HomeScreen = ({navigation}: any) => {
       animated: true,
       offset: 0,
     });
-    setCategoryIndex({index: 0, category: categories[0]});
+    setCategoryIndex({ index: 0, category: categories[0] });
     setSortedCoffee([...CoffeeList]);
     setSearchText('');
   };
@@ -114,16 +114,12 @@ const HomeScreen = ({navigation}: any) => {
       prices,
     });
     calculateCartPrice();
-    ToastAndroid.showWithGravity(
-      `${name} is Added to Cart`,
-      ToastAndroid.SHORT,
-      ToastAndroid.CENTER,
-    );
+    showToast(`${name} is Added to Cart`);
   };
 
   return (
     <View style={styles.ScreenContainer}>
-      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <CustomStatusBar backgroundColor={COLORS.primaryBlackHex} />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
@@ -196,7 +192,7 @@ const HomeScreen = ({navigation}: any) => {
                     animated: true,
                     offset: 0,
                   });
-                  setCategoryIndex({index: index, category: categories[index]});
+                  setCategoryIndex({ index: index, category: categories[index] });
                   setSortedCoffee([
                     ...getCoffeeList(categories[index], CoffeeList),
                   ]);
@@ -205,7 +201,7 @@ const HomeScreen = ({navigation}: any) => {
                   style={[
                     styles.CategoryText,
                     categoryIndex.index == index
-                      ? {color: COLORS.primaryOrangeHex}
+                      ? { color: COLORS.primaryOrangeHex }
                       : {},
                   ]}>
                   {data}
@@ -234,7 +230,7 @@ const HomeScreen = ({navigation}: any) => {
           data={sortedCoffee}
           contentContainerStyle={styles.FlatListContainer}
           keyExtractor={item => item.id}
-          renderItem={({item}) => {
+          renderItem={({ item }) => {
             return (
               <TouchableOpacity
                 onPress={() => {
@@ -271,10 +267,10 @@ const HomeScreen = ({navigation}: any) => {
           data={BeanList}
           contentContainerStyle={[
             styles.FlatListContainer,
-            {marginBottom: tabBarHeight},
+            { marginBottom: tabBarHeight },
           ]}
           keyExtractor={item => item.id}
-          renderItem={({item}) => {
+          renderItem={({ item }) => {
             return (
               <TouchableOpacity
                 onPress={() => {

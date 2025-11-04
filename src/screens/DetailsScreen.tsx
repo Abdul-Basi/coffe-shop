@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
   TouchableWithoutFeedback,
   TouchableOpacity,
 } from 'react-native';
-import {useStore} from '../store/store';
+import { CustomStatusBar } from '../components/CustomStatusBar';
+import { useStore } from '../store/store';
 import {
   BORDERRADIUS,
   COLORS,
@@ -19,7 +19,7 @@ import {
 import ImageBackgroundInfo from '../components/ImageBackgroundInfo';
 import PaymentFooter from '../components/PaymentFooter';
 
-const DetailsScreen = ({navigation, route}: any) => {
+const DetailsScreen = ({ navigation, route }: any) => {
   const ItemOfIndex = useStore((state: any) =>
     route.params.type == 'Coffee' ? state.CoffeeList : state.BeanList,
   )[route.params.index];
@@ -59,7 +59,7 @@ const DetailsScreen = ({navigation, route}: any) => {
       imagelink_square,
       special_ingredient,
       type,
-      prices: [{...price, quantity: 1}],
+      prices: [{ ...price, quantity: 1 }],
     });
     calculateCartPrice();
     navigation.navigate('Cart');
@@ -67,7 +67,7 @@ const DetailsScreen = ({navigation, route}: any) => {
 
   return (
     <View style={styles.ScreenContainer}>
-      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <CustomStatusBar backgroundColor={COLORS.primaryBlackHex} />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>

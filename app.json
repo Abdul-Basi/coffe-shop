@@ -1,4 +1,23 @@
 {
-  "name": "Coffee_Shop_App",
-  "displayName": "Coffee House"
+  "expo": {
+    "name": "Coffee House",
+    "slug": "coffee-shop-app",
+    "version": "1.0.0",
+    "sdkVersion": "49.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "orientation": "portrait",
+    "icon": "./src/assets/coffee_assets/robusta_coffee_beans/robusta_coffee_beans_portrait.png",
+    "splash": {
+      "image": "./src/assets/coffee_assets/espresso/portrait/espresso_pic_1_portrait.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
 }

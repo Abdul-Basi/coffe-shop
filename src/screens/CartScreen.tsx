@@ -1,21 +1,21 @@
 import React from 'react';
 import {
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
 } from 'react-native';
-import {useStore} from '../store/store';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
-import {COLORS, SPACING} from '../theme/theme';
+import { CustomStatusBar } from '../components/CustomStatusBar';
+import { useStore } from '../store/store';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { COLORS, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import PaymentFooter from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
 
-const CartScreen = ({navigation, route}: any) => {
+const CartScreen = ({ navigation, route }: any) => {
   const CartList = useStore((state: any) => state.CartList);
   const CartPrice = useStore((state: any) => state.CartPrice);
   const incrementCartItemQuantity = useStore(
@@ -28,7 +28,7 @@ const CartScreen = ({navigation, route}: any) => {
   const tabBarHeight = useBottomTabBarHeight();
 
   const buttonPressHandler = () => {
-    navigation.push('Payment', {amount: CartPrice});
+    navigation.push('Payment', { amount: CartPrice });
   };
 
   const incrementCartItemQuantityHandler = (id: string, size: string) => {
@@ -42,13 +42,13 @@ const CartScreen = ({navigation, route}: any) => {
   };
   return (
     <View style={styles.ScreenContainer}>
-      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <CustomStatusBar backgroundColor={COLORS.primaryBlackHex} />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         <View
-          style={[styles.ScrollViewInnerView, {marginBottom: tabBarHeight}]}>
+          style={[styles.ScrollViewInnerView, { marginBottom: tabBarHeight }]}>
           <View style={styles.ItemContainer}>
             <HeaderBar title="Cart" />
 
@@ -91,7 +91,7 @@ const CartScreen = ({navigation, route}: any) => {
             <PaymentFooter
               buttonPressHandler={buttonPressHandler}
               buttonTitle="Pay"
-              price={{price: CartPrice, currency: '$'}}
+              price={{ price: CartPrice, currency: '$' }}
             />
           ) : (
             <></>

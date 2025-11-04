@@ -7,7 +7,7 @@
 
 ### Figma Design Link : View the complete figma design [Here]('https://www.figma.com/file/X6iFON9Z1zsADVbCI7hWUq/Coffee-Shop-App-UI-(Copy)?type=design&node-id=0%3A1&mode=design&t=CW8j4E78mf2PggDQ-1').
 
-A mobile app built with React Native CLI that takes your coffee shop experience to the next level. Whether you're a coffee enthusiast or just starting your coffee journey, BrewNest has something special for everyone.
+A mobile app originally built with React Native CLI. This repository has been updated to be compatible with Expo so you can run it easily with the Expo CLI.
 
 ## Key Features
 
@@ -18,16 +18,26 @@ A mobile app built with React Native CLI that takes your coffee shop experience 
 - **Order History:** Keep track of your previous orders for easy reordering.
 - **iOS Dependencies:** For iOS users, make sure to run `pod install` in the `ios` directory to install necessary dependencies.
 
-## Installation
+## Installation (Expo)
 
 1. Clone the repository: `git clone https://github.com/mxnuchim/Coffee-Shop-App-React-Native.git`
-2. Navigate to the project directory: `cd BrewNest`
-3. Install dependencies: `npm install`
-4. For iOS, navigate to the `ios` directory and run `pod install` to install dependencies for iOS.
+2. Navigate to the project directory: `cd Coffee-Shop-App-React-Native`
+3. Install dependencies: `npm install` or `yarn`
 
-## Usage
+## Usage (Expo)
 
-- Start the app on an iOS or Android emulator or device: `npm run ios` or `npm run android`
+- Start the development server and open the Expo devtools: `npm run start` or `yarn start`
+- To open on Android emulator/device: `npm run android` (runs `expo start --android`)
+- To open on iOS simulator/device: `npm run ios` (runs `expo start --ios`)
+- To run in web browser: `npm run web` (runs `expo start --web`)
+
+Notes:
+- You can also run `npx expo start` without installing the global CLI.
+- Some native libraries used in this project may require additional Expo config or replacement packages. If you hit native build errors, see the notes below.
+
+Migration notes:
+- Native modules such as `react-native-splash-screen`, `lottie-react-native`, and some community native modules may require Expo equivalents (`expo-splash-screen`, `lottie-react-native` via config plugins, `@expo/vector-icons`, `expo-linear-gradient`) or running `expo prebuild` to create native projects.
+- If you previously used CocoaPods directly, Expo manages native dependencies for the managed workflow. For a custom native setup use `expo prebuild` or eject.
 
 ## Contributing
 

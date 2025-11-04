@@ -3,18 +3,18 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {useStore} from '../store/store';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
-import {COLORS, SPACING} from '../theme/theme';
+import { CustomStatusBar } from '../components/CustomStatusBar';
+import { useStore } from '../store/store';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { COLORS, SPACING } from '../theme/theme';
 import HeaderBar from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import FavoritesItemCard from '../components/FavoritesItemCard';
 
-const FavoritesScreen = ({navigation}: any) => {
+const FavoritesScreen = ({ navigation }: any) => {
   const FavoritesList = useStore((state: any) => state.FavoritesList);
   const tabBarHeight = useBottomTabBarHeight();
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
@@ -26,13 +26,13 @@ const FavoritesScreen = ({navigation}: any) => {
   };
   return (
     <View style={styles.ScreenContainer}>
-      <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <CustomStatusBar backgroundColor={COLORS.primaryBlackHex} />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         <View
-          style={[styles.ScrollViewInnerView, {marginBottom: tabBarHeight}]}>
+          style={[styles.ScrollViewInnerView, { marginBottom: tabBarHeight }]}>
           <View style={styles.ItemContainer}>
             <HeaderBar title="Favourites" />
 
